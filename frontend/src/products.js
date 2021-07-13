@@ -67,7 +67,7 @@ const products = [
   {
     '_id': '6',
     'name': 'GameSir T4 pro Wireless Game Controller',
-    'image': '/images/alexa.jpg',
+    'image': '/images/controller-gamesir-t4.jpg',
     'description':
       'GameSir T4 pro\'s chip has been upgraded in all aspects. This chip can now meet the hopes of players using GameSir T4 pro on multiple platforms. It only takes a few simple steps to use this controller on Apple, Android, Android TV Box, Mac OS, PC, and Switch.',
     'brand': 'GameSir',

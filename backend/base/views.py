@@ -28,3 +28,13 @@ def getRoutes(request):
 @api_view(http_method_names=['GET'])
 def getProducts(request):
     return Response(products)
+
+
+@api_view(http_method_names=['GET'])
+def getProduct(request, pk):
+    product = None
+    for i in products:
+        if i['_id'] == pk:
+            product = i
+            break
+    return Response(product)

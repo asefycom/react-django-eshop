@@ -10,7 +10,7 @@ import axios from 'axios'
 export const fetchProducts = () => async (dispatch) => {
     try {
         dispatch({ type: PRODUCT_LIST_REQUEST })
-        const { data } = await axios.get('/api/v1/products/')
+        const { data } = await axios.get('/ap/v1/products/')
         dispatch({
             type: PRODUCT_LIST_SUCCESS,
             payload: data

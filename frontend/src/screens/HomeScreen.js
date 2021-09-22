@@ -14,7 +14,7 @@ function HomeScreen() {
 
     useEffect(() => {
         dispatch(fetchProducts())
-    }, [])
+    }, [dispatch])
 
     return (
         <div>

@@ -1,11 +1,11 @@
 import React, { useEffect } from 'react'
 import { addToCart } from '../actions/cartActions'
 import { useDispatch, useSelector } from 'react-redux'
-import { Row, Col, ListGroup, Image, Form } from 'react-bootstrap'
+import { Row, Col, ListGroup, Image, Form, Card, Button } from 'react-bootstrap'
 import Message from '../components/Message'
 import { Link } from 'react-router-dom'
 
-function CartScreen({ match, location }) {
+function CartScreen({ match, location, history }) {
     const productId = match.params.id
     const qty = location.search ? Number(location.search.split("=")[1]) : 1
     const dispatch = useDispatch()
@@ -20,10 +20,15 @@ function CartScreen({ match, location }) {
 
     }, [dispatch, productId, qty])
 
+    const checkoutHandler = () => {
+        history.push('/login?redirect=shipping')
+    }
+
 
     return (
         <Row>
             <Col md={8}>
+                <h1>Shopping Cart</h1>
                 {cartItems.length === 0 ? (
                     <Message variant='info' text='Your cart is empty!' />
                 ) : (
@@ -67,7 +72,26 @@ function CartScreen({ match, location }) {
 
 
             <Col md={4}>
+                <Card>
+                    <ListGroup>
+                        <ListGroup.Item>
+                            <h2>Subtotal ({cartItems.reduce((acc, item) => acc + item.qty, 0)}) items</h2>
+                            ${cartItems.reduce((acc, item) => acc + item.qty * item.price, 0)}
 
+                        </ListGroup.Item>
+
+                        <ListGroup.Item>
+                            <Button
+                                type='button'
+                                className='btn-block'
+                                disabled={cartItems.length === 0}
+                                onClick={checkoutHandler}
+                            >
+                                Proceed To Checkout
+                            </Button>
+                        </ListGroup.Item>
+                    </ListGroup>
+                </Card>
             </Col>
 
         </Row>

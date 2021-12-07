@@ -6,3 +6,5 @@
 
 
 [##Chapter 3: Manage Application State by using Redux](https://hamruyesh.com/product/django-react-ecommerce-tutorial-part3-redux/)
+
+[##Chapter 4: Manage Cart Page](https://hamruyesh.com/product/django-react-fullstack-ecommerce-tutorial-part4-cart/)
